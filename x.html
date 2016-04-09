@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" integrity="sha384-mXQoED/lFIuocc//nss8aJOIrz7X7XruhR6bO+sGceiSyMELoVdZkN7F0oYwcFH+" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+
+
+<script language="javascript" type="text/javascript">
+        $(function() {
+/*
+            var data = { Name: "Denny", Age: 23 };
+            sendAJAX("Service.svc/Dowork1", JSON.stringify(data),
+            function(msg) {
+            var result = JSON.parse(msg); //将json字符串反序列化成js对象
+                alert(result);
+            });
+*/
+
+
+var config={
+    "target": {
+      "host": "dashboard.us.enableiot.com",
+      "api_root": "/v1/api",
+      "username": "feng4ever@msn.com",
+      "password": "Feng4ever",
+      "account": "account",
+      "accountId":"ee4f618b-186c-44a0-89a7-aabb902b83e2",
+      //neil"accountId":"31a379c5-a189-4097-b203-d994f1f48045",
+      "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJlNTU5NjlmZS05MGE4LTRhZmEtODUxNS01NzQwZmQ4MDkwMmUiLCJpc3MiOiJodHRwOi8vZW5hYmxlaW90LmNvbSIsInN1YiI6IjU3MDhmZDFlYjQyMWY4YzYzZTY2NzMwNCIsImV4cCI6IjIwMTYtMDQtMTBUMTM6MjQ6MzIuMjkyWiJ9.G2bFzMok4cQ5Q7oXX7Dth312xmKaxNhzjDPxrYQEvUc5fKWVGztuaMQJmS_j1GVYG59kSyCzQKwvGIX5bdvpu6QonpiTT8zmRqqN0fBQZBZfIpazgzGNRNPW42WPzgdRVI67RrjA3ifV1L2kqKjg4QFxRhuZvHq5WBnmMkKMXLuVl5wsc4T1Kv9t16P2xfc6dfNtKKixr8V6sGKsGzSBkqv-bGUEiJ7O1jAw_I6j9CnRwOwHvMMwjEdz87PjbS_KcrA5xcMy2j8AHzMTLiIY1uxIBemiB_DbBZu57anNreR59DlhX8HVVyFjs7lp4L4FpE2fKf4C519ZA5KYcoHidQ"
+    },
+    "source": {
+      "deviceId": "0e-43-2c-c4-ac-72",
+      "gatewayId": "desired-device-id",
+      "name": "desired-device-name",
+      "tags": ["tag1", "tag2", "tag3"],
+      "loc": [ 45.5228, -122.9897, 75.2 ],
+      "attributes" : {
+        "manufacturer": "intel",
+        "platform": "x86",
+        "os": "linux"
+      }
+    },
+    "component": {
+      "type": "SampleComponentName.v1.0",
+      "name": "desired-sensor-name",
+      "cid": "desired-sensor-id"
+    }
+
+}
+
+
+sendAJAX(
+    				"/accounts/"+config.target.accountId+"/data/search",
+    				
+    				{"from":1460199181871,
+    				"targetFilter":{"deviceList":["0e-43-2c-c4-ac-72"]},
+    				"maxItems": 1,
+    				"metrics":[{"id":"7b19036b-6e39-4335-b2c4-c7958291ddb5","op":"none"},{"id":"temp","op":"none"},{"id":"4d79d5c7-1454-4643-a140-eb8a91e51451","op":"none"},{"id":"water","op":"none"},{"id":"d8713db7-c4b2-4bcb-b6b6-190963914c1d","op":"none"},{"id":"zpos","op":"none"},{"id":"2d7691b1-d664-47d7-959a-4dcfd9398551","op":"none"},{"id":"sound","op":"none"}]}
+
+
+    				,
+    				function(msg){
+    					console.log(msg);
+    				}
+    				)
+		/*getToken(
+			"/auth/token",
+			{"username": config.target.username,"password": config.target.password},
+    		function(msg){
+
+    			config.target.token=msg.token;
+    			console.log(config.target.token);
+    			sendAJAX(
+    				"/accounts/"+config.target.accountId+"/data/search",
+    				
+    				{"from":1460199181871,
+    				"targetFilter":{"deviceList":["0e-43-2c-c4-ac-72"]},
+    				"maxItems": 50,
+    				"metrics":[{"id":"7b19036b-6e39-4335-b2c4-c7958291ddb5","op":"none"},{"id":"temp","op":"none"},{"id":"4d79d5c7-1454-4643-a140-eb8a91e51451","op":"none"},{"id":"water","op":"none"},{"id":"d8713db7-c4b2-4bcb-b6b6-190963914c1d","op":"none"},{"id":"zpos","op":"none"},{"id":"2d7691b1-d664-47d7-959a-4dcfd9398551","op":"none"},{"id":"sound","op":"none"}]}
+
+
+    				,
+    				function(msg){
+    					console.log(msg);
+    				}
+    				)
+    		}
+    	);
+
+*/
+    function getToken(url,data,success) {
+        $.ajax({
+            type: "POST",
+            contentType: "application/x-www-form-urlencoded",
+            url: "https://"+config.target.host+config.target.api_root+url,
+            data: data,
+            success: success,
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Error Occured!");
+            }
+        });
+    }
+    function sendAJAX(url,data,success) {
+        $.ajax({
+
+
+
+
+            type: "POST",
+            contentType: "application/json",
+            Authorization: "Bearer "+config.target.token,
+            url: "https://"+config.target.host+config.target.api_root+url,
+            data: data,
+            //processData: false,
+            success: success,
+            "Access-Control-Allow-Origin": "dashboard.us.enableiot.com",
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Error Occured!");
+            }
+        });
+    }
+  })
+    </script>
+
+
+
+
+
+  </body>
+</html>
